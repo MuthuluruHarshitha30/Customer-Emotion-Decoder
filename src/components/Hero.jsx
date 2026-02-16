@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Sparkles, ArrowRight } from 'lucide-react'
 
 function Hero() {
@@ -29,13 +30,13 @@ function Hero() {
             of reviews into actionable insights—helping you understand what customers truly love, 
             hate, and want improved.
           </p>
-          <a
-            href="#features"
+          <Link
+            to="/dashboard/reviews"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-1"
           >
             View Insights
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

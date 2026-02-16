@@ -1,28 +1,43 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Problem from './components/Problem'
-import Solution from './components/Solution'
-import KeyFeatures from './components/KeyFeatures'
-import HowItWorks from './components/HowItWorks'
-import ExpectedImpact from './components/ExpectedImpact'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
+import DashboardLayout from './components/dashboard/DashboardLayout'
+import DashboardHome from './pages/DashboardHome'
+import ReviewsPage from './pages/ReviewsPage'
+import OrdersPage from './pages/OrdersPage'
+import PropertiesPage from './pages/PropertiesPage'
+import CustomersPage from './pages/CustomersPage'
+import AnalyticsPage from './pages/AnalyticsPage'
+import TaskPage from './pages/TaskPage'
+import AppsPage from './pages/AppsPage'
+import ChartsPage from './pages/ChartsPage'
+import TablePage from './pages/TablePage'
+import EmailPage from './pages/EmailPage'
+import WidgetPage from './pages/WidgetPage'
+import ReportsPage from './pages/ReportsPage'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white antialiased">
-      {/* Safelist: ensures Tailwind includes gradient classes used dynamically in Problem & KeyFeatures */}
-      <div className="hidden from-amber-500 to-orange-500 from-rose-500 to-pink-500 from-red-500 to-rose-500 from-violet-500 to-purple-500 from-emerald-500 to-teal-500 from-indigo-500 to-violet-500 from-rose-500 to-red-500 from-blue-500 to-cyan-500" aria-hidden="true" />
-      <Navbar />
-      <main>
-        <Hero />
-        <Problem />
-        <Solution />
-        <KeyFeatures />
-        <HowItWorks />
-        <ExpectedImpact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardHome />} />
+          <Route path="reviews" element={<ReviewsPage />} />
+          <Route path="orders" element={<OrdersPage />} />
+          <Route path="properties" element={<PropertiesPage />} />
+          <Route path="customers" element={<CustomersPage />} />
+          <Route path="analytics" element={<AnalyticsPage />} />
+          <Route path="tasks" element={<TaskPage />} />
+          <Route path="apps" element={<AppsPage />} />
+          <Route path="charts" element={<ChartsPage />} />
+          <Route path="table" element={<TablePage />} />
+          <Route path="email" element={<EmailPage />} />
+          <Route path="widget" element={<WidgetPage />} />
+          <Route path="reports" element={<ReportsPage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
